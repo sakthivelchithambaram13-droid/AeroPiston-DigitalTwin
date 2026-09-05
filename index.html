@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1118">
+  <title>AeroTwin GCS — Mission-Aware Engine Digital Twin</title>
+  <meta name="description" content="Interactive aero-piston engine digital twin for health monitoring, fault diagnosis, mission reliability and maintenance decision support.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">AT</span><span><strong>AeroTwin GCS</strong><small>Mission-aware propulsion health</small></span></div>
+      <div class="system-strip" aria-label="System status">
+        <span class="status-pill simulated">SIMULATED DATA</span>
+        <span class="status-pill ok">LINK SECURE</span>
+        <span class="status-pill ok">TWIN SYNC 97%</span>
+        <span id="headerEngineState" class="status-pill ok">ENGINE NOMINAL</span>
+      </div>
+    </header>
+    <nav id="primaryNav" class="primary-nav" aria-label="Primary dashboard views"></nav>
+    <main id="mainContent" tabindex="-1"></main>
+  </div>
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+  <script>
+    // When your Blender model is ready, save it under dist/models and set this path.
+    // Keep it empty to use the built-in four-cylinder engineering demonstrator.
+    window.AEROTWIN_MODEL_URL = "";
+  </script>
+  <script src="app.js"></script>
+  <script type="module" src="engine3d.js"></script>
+</body>
+</html>
